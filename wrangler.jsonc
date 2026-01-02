@@ -7,7 +7,7 @@
   "name": "temp-mail",
   "main": "src/index.ts",
   "account_id": "f1ed820de1a2fe3a9abaf1026bedcb10",
-  "compatibility_date": "2026-01-2",
+  "compatibility_date": "2025-12-15",
   "workers_dev": false,
   "preview_urls": false,
   "observability": {
