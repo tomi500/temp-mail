@@ -1,11 +1,11 @@
 import {z} from "zod";
 
 export const emailAddressParamSchema = z.object({
-    emailAddress: z.string().email(),
+    emailAddress: z.email(),
 });
 
 export const emailIdParamSchema = z.object({
-    emailId: z.string().cuid2(),
+    emailId: z.cuid2(),
 });
 
 export const emailQuerySchema = z.object({
