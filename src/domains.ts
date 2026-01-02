@@ -3,41 +3,9 @@
 
 export const DOMAINS = [
     {
-        owner: "vwh",
-        domain: "barid.site",
-    },
-    {
-        owner: "vwh",
-        domain: "vwh.sh",
-    },
-    {
-        owner: "vwh",
-        domain: "iusearch.lol",
-    },
-    {
-        owner: "mm6x",
-        domain: "lifetalk.us",
-    },
-    {
-        owner: "z44d",
-        domain: "z44d.pro",
-    },
-    {
-        owner: "blockton",
-        domain: "wael.fun",
-    },
-    {
-        owner: "HprideH",
-        domain: "tawbah.site",
-    },
-    {
-        owner: "HprideH",
-        domain: "kuruptd.ink",
-    },
-    {
-        owner: "superhexa",
-        domain: "hexworld.cc",
-    },
+        owner: "tomi",
+        domain: "tm.603060.xyz",
+    }
 ] satisfies {
     owner: string;
     domain: string;
