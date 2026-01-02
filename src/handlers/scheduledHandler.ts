@@ -1,5 +1,6 @@
 import * as db from "@/database/queries";
-import { throwError } from "@/utils/error";
+import {throwError} from "@/utils/error";
+import {CloudflareBindings} from "@/types";
 
 const DAYS_TO_DELETE = 2;
 
@@ -8,18 +9,18 @@ const DAYS_TO_DELETE = 2;
  * Delete emails older than 2 days
  */
 export async function handleScheduled(
-	_event: ScheduledEvent,
-	env: CloudflareBindings,
-	_ctx: ExecutionContext,
+    _event: ScheduledEvent,
+    env: CloudflareBindings,
+    _ctx: ExecutionContext,
 ) {
-	const threeDaysAgo = Date.now() - DAYS_TO_DELETE * 24 * 60 * 60 * 1000;
+    const threeDaysAgo = Date.now() - DAYS_TO_DELETE * 24 * 60 * 60 * 1000;
 
-	// Delete old emails
-	const { success, error } = await db.deleteOldEmails(env.DB, threeDaysAgo);
+    // Delete old emails
+    const {success, error} = await db.deleteOldEmails(env.DB, threeDaysAgo);
 
-	if (success) {
-		console.log("Email cleanup completed successfully.");
-	} else {
-		throwError(`Email cleanup failed: ${error}`);
-	}
+    if (success) {
+        console.log("Email cleanup completed successfully.");
+    } else {
+        throwError(`Email cleanup failed: ${error}`);
+    }
 }
