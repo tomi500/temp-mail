@@ -3,62 +3,76 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "temp-mail",
-	"main": "src/index.ts",
-	"compatibility_date": "2025-07-15",
-	"observability": {
-		"enabled": true
-	},
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "temp-mail-emails",
-			"database_id": "e8a508db-c2a4-475d-9136-46d61026e197" // Replace with the ID from `bun run db:create`
-		}
-	],
-	"kv_namespaces": [
-		{
-			"binding": "EMAIL_STATS_KV",
-			"id": "9db395e1e55e4735b1b69cdd8429e7c5", // Replace with the ID from `bun run kv:create`
-			"preview_id": "9db395e1e55e4735b1b69cdd8429e7c5" // Replace with the ID from `bun run kv:create`
-		}
-	],
-	"triggers": {
-		"crons": ["0 * * * *"]
-	}
-	/**
-	 * Smart Placement
-	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
-	 */
-	// "placement": { "mode": "smart" },
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "temp-mail",
+  "main": "src/index.ts",
+  "account_id": "f1ed820de1a2fe3a9abaf1026bedcb10",
+  "compatibility_date": "2026-01-2",
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "temp-mail-emails",
+      "database_id": "e8a508db-c2a4-475d-9136-46d61026e197"
+      // Replace with the ID from `bun run db:create`
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "EMAIL_STATS_KV",
+      "id": "9db395e1e55e4735b1b69cdd8429e7c5",
+      // Replace with the ID from `bun run kv:create`
+      "preview_id": "9db395e1e55e4735b1b69cdd8429e7c5"
+      // Replace with the ID from `bun run kv:create`
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "tm.603060.xyz",
+      "custom_domain": true
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "0 * * * *"
+    ]
+  }
+  /**
+   * Smart Placement
+   * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
+   */
+  // "placement": { "mode": "smart" },
 
-	/**
-	 * Bindings
-	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
-	 * databases, object storage, AI inference, real-time communication and more.
-	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
-	 */
+  /**
+   * Bindings
+   * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
+   * databases, object storage, AI inference, real-time communication and more.
+   * https://developers.cloudflare.com/workers/runtime-apis/bindings/
+   */
 
-	/**
-	 * Environment Variables
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
-	 */
-	// "vars": { "MY_VARIABLE": "production_value" },
-	/**
-	 * Note: Use secrets to store sensitive data.
-	 * https://developers.cloudflare.com/workers/configuration/secrets/
-	 */
+  /**
+   * Environment Variables
+   * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+   */
+  // "vars": { "MY_VARIABLE": "production_value" },
+  /**
+   * Note: Use secrets to store sensitive data.
+   * https://developers.cloudflare.com/workers/configuration/secrets/
+   */
 
-	/**
-	 * Static Assets
-	 * https://developers.cloudflare.com/workers/static-assets/binding/
-	 */
-	// "assets": { "directory": "./public/", "binding": "ASSETS" },
+  /**
+   * Static Assets
+   * https://developers.cloudflare.com/workers/static-assets/binding/
+   */
+  // "assets": { "directory": "./public/", "binding": "ASSETS" },
 
-	/**
-	 * Service Bindings (communicate between multiple Workers)
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
-	 */
-	// "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
+  /**
+   * Service Bindings (communicate between multiple Workers)
+   * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
+   */
+  // "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
 }
