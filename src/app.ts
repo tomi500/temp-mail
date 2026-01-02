@@ -1,6 +1,11 @@
-import { Hono } from "hono";
+import {Hono} from "hono";
 import emailRoutes from "@/routes/emailRoutes";
-import { corsMiddleware } from "./middlewares/cors";
+import {corsMiddleware} from "./middlewares/cors";
+
+type CloudflareBindings = {
+    DB: D1Database;
+    EMAIL_STATS_KV: KVNamespace;
+};
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 
