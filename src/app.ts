@@ -12,8 +12,10 @@ app.use(corsMiddleware);
 // --- Routes ---
 // Email Routes
 app.route("/", emailRoutes);
+
 // Attachment Routes
 // app.route("/", attachmentRoutes);
+
 // Health Check
 app.route("/", healthRoutes);
 
